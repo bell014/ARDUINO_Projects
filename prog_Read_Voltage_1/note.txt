@@ -1,0 +1,8 @@
+V2 = (5/1023) * READ_VAL
+
+const int Pins[]={1,2,3};
+int PinNum = ? ;
+
+for (int i=0;i<PinNum;i++){
+    pinMode (Pins[i],   );
+  }

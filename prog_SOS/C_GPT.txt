@@ -1,0 +1,79 @@
+const int shortDelay = 300; // Short delay between signals
+const int longDelay = 1000; // Long delay for 'O'
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  blinkSOS();
+  delay(3000); // Pause between SOS messages
+}
+
+void blinkSOS() {
+  // S
+  blinkDot();
+  blinkDot();
+  blinkDot();
+  
+  delay(shortDelay); // Short pause between characters
+  
+  // O
+  blinkDash();
+  blinkDash();
+  blinkDash();
+  
+  delay(shortDelay); // Short pause between characters
+  
+  // S
+  blinkDot();
+  blinkDot();
+  blinkDot();
+}
+
+void blinkDot() {
+  digitalWrite(ledPin, HIGH);
+  delay(500);
+  digitalWrite(ledPin, LOW);
+  delay(400);
+}
+
+void blinkDash() {
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
+  delay(400);
+}
+
+
+
+==========================================================================================
+
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  blink("... --- ..."); // Blink "SOS"
+  delay(3000); // Pause between SOS messages
+}
+
+void blink(const char* morseCode) {
+  for (int i = 0; morseCode[i] != '\0'; i++) {
+    if (morseCode[i] == '.') {
+      digitalWrite(ledPin, HIGH); // Dot
+      delay(500);
+    } else if (morseCode[i] == '-') {
+      digitalWrite(ledPin, HIGH); // Dash
+      delay(1000);
+    } else if (morseCode[i] == ' ') {
+      digitalWrite(ledPin, LOW); // Pause between characters
+      delay(400);
+    }
+    digitalWrite(ledPin, LOW); // Pause between signals
+    delay(400);
+  }
+}
+
+

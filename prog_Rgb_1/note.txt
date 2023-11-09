@@ -1,0 +1,6 @@
+-3 LEDS
+  loop {
+	red blinks = 1 
+	green blinks = 2 
+	blue blinks = 3 
+     }
